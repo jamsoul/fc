@@ -45,15 +45,18 @@ sha3 sha3::hash( const string& s ) {
 }
 
 void sha3::encoder::write( const char* d, uint32_t dlen ) {
-  SHA1_Update( &my->ctx, d, dlen);
+  printf("sha3::encoder::write\n");
+// SHA1_Update( &my->ctx, d, dlen);
 }
 sha3 sha3::encoder::result() {
   sha3 h;
-  SHA1_Final((uint8_t*)h.data(), &my->ctx );
+  printf("sha3::encoder::result\n");
+  //SHA1_Final((uint8_t*)h.data(), &my->ctx );
   return h;
 }
 void sha3::encoder::reset() {
-  SHA1_Init( &my->ctx);
+  printf("sha3::encoder::reset\n");
+//  SHA1_Init( &my->ctx);
 }
 
 sha3 operator << ( const sha3& h1, uint32_t i ) {
